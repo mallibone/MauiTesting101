@@ -7,6 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiTesting101", "MauiTesti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiTesting101.Tests", "MauiTesting101.Tests\MauiTesting101.Tests.csproj", "{4DDD0870-BF2B-43DB-B98A-AE3977E5960A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTesting", "UnitTesting", "{07E9A5A6-70E8-450F-97BA-35804831730C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeviceTesting", "DeviceTesting", "{C51EE2F7-C18F-4E34-8C7E-18283038554E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiDeviceTesting101", "MauiDeviceTesting101\MauiDeviceTesting101.csproj", "{AC78416A-65A3-4D42-83A6-577D50EF554D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiDeviceTesting101.Core", "MauiDeviceTesting101.Core\MauiDeviceTesting101.Core.csproj", "{81BAD301-E9E2-4906-9F8E-44CADA7B5D42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiDeviceTesting101.Tests", "MauiDeviceTesting101.Tests\MauiDeviceTesting101.Tests.csproj", "{869EBC42-B84F-4046-AA77-4093EDAC1C83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +33,30 @@ Global
 		{4DDD0870-BF2B-43DB-B98A-AE3977E5960A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DDD0870-BF2B-43DB-B98A-AE3977E5960A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DDD0870-BF2B-43DB-B98A-AE3977E5960A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC78416A-65A3-4D42-83A6-577D50EF554D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC78416A-65A3-4D42-83A6-577D50EF554D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC78416A-65A3-4D42-83A6-577D50EF554D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC78416A-65A3-4D42-83A6-577D50EF554D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81BAD301-E9E2-4906-9F8E-44CADA7B5D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81BAD301-E9E2-4906-9F8E-44CADA7B5D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81BAD301-E9E2-4906-9F8E-44CADA7B5D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81BAD301-E9E2-4906-9F8E-44CADA7B5D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{869EBC42-B84F-4046-AA77-4093EDAC1C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{869EBC42-B84F-4046-AA77-4093EDAC1C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{869EBC42-B84F-4046-AA77-4093EDAC1C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{869EBC42-B84F-4046-AA77-4093EDAC1C83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8049F1E1-F449-42F2-B444-B25273A42626} = {07E9A5A6-70E8-450F-97BA-35804831730C}
+		{4DDD0870-BF2B-43DB-B98A-AE3977E5960A} = {07E9A5A6-70E8-450F-97BA-35804831730C}
+		{AC78416A-65A3-4D42-83A6-577D50EF554D} = {C51EE2F7-C18F-4E34-8C7E-18283038554E}
+		{81BAD301-E9E2-4906-9F8E-44CADA7B5D42} = {C51EE2F7-C18F-4E34-8C7E-18283038554E}
+		{869EBC42-B84F-4046-AA77-4093EDAC1C83} = {C51EE2F7-C18F-4E34-8C7E-18283038554E}
 	EndGlobalSection
 EndGlobal

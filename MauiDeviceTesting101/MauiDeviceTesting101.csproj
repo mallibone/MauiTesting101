@@ -1,0 +1,247 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>MauiDeviceTesting101</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>MauiDeviceTesting101</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.mauidevicetesting101</ApplicationId>
+		<ApplicationIdGuid>e3e00779-9c4e-439f-8fe0-f4c320a28996</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="MauiDeviceTesting101.Core\obj\project.assets.json" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\MauiDeviceTesting101.Core.csproj.nuget.dgspec.json" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-mdpi-v4\notification_bg_low_pressed.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-mdpi-v4\notify_panel_notification_icon_bg.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-mdpi-v4\notification_bg_normal_pressed.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-mdpi-v4\notification_bg_normal.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-mdpi-v4\notification_bg_low_normal.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-xhdpi-v4\notification_bg_low_pressed.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-xhdpi-v4\notify_panel_notification_icon_bg.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-xhdpi-v4\notification_bg_normal_pressed.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-xhdpi-v4\notification_bg_normal.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-xhdpi-v4\notification_bg_low_normal.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-hdpi-v4\notification_bg_low_pressed.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-hdpi-v4\notify_panel_notification_icon_bg.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-hdpi-v4\notification_bg_normal_pressed.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-hdpi-v4\notification_bg_normal.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\92\jl\res\drawable-hdpi-v4\notification_bg_low_normal.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-ldrtl-hdpi-v17\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_ab_share_pack_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_list_longpressed_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_scrubber_control_off_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_textfield_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_list_selector_disabled_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_textfield_search_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_popup_background_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_list_pressed_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_btn_switch_to_on_mtrl_00012.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_scrubber_primary_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_scrubber_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_btn_check_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_btn_radio_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_text_select_handle_left_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_textfield_search_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_textfield_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_btn_switch_to_on_mtrl_00001.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_scrubber_control_to_pressed_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_btn_radio_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_ic_commit_search_api_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_list_selector_disabled_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_switch_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_cab_background_top_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_list_pressed_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_text_select_handle_right_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_list_divider_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_menu_hardkey_panel_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_btn_check_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_scrubber_control_to_pressed_mtrl_005.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_list_focused_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_tab_indicator_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-mdpi-v4\abc_text_select_handle_middle_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-ldrtl-xxxhdpi-v17\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_ab_share_pack_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_list_longpressed_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_scrubber_control_off_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_textfield_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_list_selector_disabled_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_textfield_search_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_popup_background_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_list_pressed_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_btn_switch_to_on_mtrl_00012.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_scrubber_primary_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_scrubber_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_btn_check_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_btn_radio_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_text_select_handle_left_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_textfield_search_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_textfield_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_btn_switch_to_on_mtrl_00001.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_scrubber_control_to_pressed_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_btn_radio_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_ic_commit_search_api_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_list_selector_disabled_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_switch_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_cab_background_top_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_list_pressed_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_text_select_handle_right_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_list_divider_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_menu_hardkey_panel_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_btn_check_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_scrubber_control_to_pressed_mtrl_005.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_list_focused_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_tab_indicator_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxhdpi-v4\abc_text_select_handle_middle_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_btn_switch_to_on_mtrl_00012.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_btn_check_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_btn_radio_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_text_select_handle_left_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_btn_switch_to_on_mtrl_00001.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_scrubber_control_to_pressed_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_btn_radio_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_switch_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_text_select_handle_right_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_btn_check_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_scrubber_control_to_pressed_mtrl_005.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xxxhdpi-v4\abc_tab_indicator_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-ldrtl-xhdpi-v17\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_ab_share_pack_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_list_longpressed_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_scrubber_control_off_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_textfield_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_list_selector_disabled_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_textfield_search_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_popup_background_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_list_pressed_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_btn_switch_to_on_mtrl_00012.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_scrubber_primary_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_scrubber_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_btn_check_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_btn_radio_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_text_select_handle_left_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_textfield_search_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_textfield_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_btn_switch_to_on_mtrl_00001.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_scrubber_control_to_pressed_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_btn_radio_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_ic_commit_search_api_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_list_selector_disabled_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_switch_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_cab_background_top_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_list_pressed_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_text_select_handle_right_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_list_divider_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_menu_hardkey_panel_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_btn_check_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_scrubber_control_to_pressed_mtrl_005.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_list_focused_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_tab_indicator_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-xhdpi-v4\abc_text_select_handle_middle_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-ldrtl-mdpi-v17\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_ab_share_pack_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_list_longpressed_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_spinner_mtrl_am_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_scrubber_control_off_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_textfield_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_list_selector_disabled_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_textfield_search_activated_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_popup_background_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_list_pressed_holo_dark.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_btn_switch_to_on_mtrl_00012.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_scrubber_primary_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_scrubber_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_btn_check_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_btn_radio_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_text_select_handle_left_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_textfield_search_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_textfield_default_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_btn_switch_to_on_mtrl_00001.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_scrubber_control_to_pressed_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_btn_radio_to_on_mtrl_015.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_ic_commit_search_api_mtrl_alpha.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_list_selector_disabled_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_switch_track_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_cab_background_top_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_list_pressed_holo_light.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_text_select_handle_right_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_list_divider_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_menu_hardkey_panel_mtrl_mult.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_btn_check_to_on_mtrl_000.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_scrubber_control_to_pressed_mtrl_005.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_list_focused_holo.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_tab_indicator_mtrl_alpha.9.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-hdpi-v4\abc_text_select_handle_middle_mtrl.png" />
+	  <None Remove="MauiDeviceTesting101.Core\obj\Debug\net7.0-android\lp\123\jl\res\drawable-ldrtl-xxhdpi-v17\abc_spinner_mtrl_am_alpha.9.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="MainPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </BundleResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="MainPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\MauiDeviceTesting101.Core\MauiDeviceTesting101.Core.csproj" />
+	</ItemGroup>
+</Project>
