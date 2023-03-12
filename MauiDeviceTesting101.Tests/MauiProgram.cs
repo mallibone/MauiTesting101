@@ -4,15 +4,16 @@ namespace MauiDeviceTesting101.Tests;
 
 public static class MauiProgram
 {
-    public static MauiApp CreateMauiApp() => 
+    public static MauiApp CreateMauiApp() =>
         MauiApp
-        .CreateBuilder()
-        .ConfigureTests(new TestOptions
-        {
-            Assemblies =
+            .CreateBuilder()
+            .ConfigureTests(new TestOptions()
             {
-                typeof(MauiProgram).Assembly
-            }
-        })
-        .UseVisualRunner()
-        .Build();}
+                Assemblies =
+                {
+                    typeof(MauiProgram).Assembly
+                }
+            })
+            .UseVisualRunner()
+            .Build();
+}
