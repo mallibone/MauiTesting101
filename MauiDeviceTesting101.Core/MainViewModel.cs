@@ -17,4 +17,15 @@ public partial class MainViewModel : ObservableObject
 		else Text = $"Clicked {Count} times";
 
 	}
+	
+	[RelayCommand]
+	public async Task AsyncCounterClicked()
+	{
+		await Task.Delay(3000);
+		Count++;
+
+		if (Count == 1) Text = $"Clicked {Count} time";
+		else Text = $"Clicked {Count} times";
+
+	}
 }

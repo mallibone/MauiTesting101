@@ -32,6 +32,7 @@
 
             <Button
                 x:Name="CounterBtn"
+                AutomationId="CounterBtn"
                 Text="{Binding Text}"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Command="{Binding CounterClickedCommand}"

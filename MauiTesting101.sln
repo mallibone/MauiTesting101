@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiDeviceTesting101.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiDeviceTesting101.Tests", "MauiDeviceTesting101.Tests\MauiDeviceTesting101.Tests.csproj", "{869EBC42-B84F-4046-AA77-4093EDAC1C83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiTesting101.UiTests", "MauiTesting101.UiTests\MauiTesting101.UiTests.csproj", "{DC0302EB-3CD0-4C04-9977-F4CA61827F39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{869EBC42-B84F-4046-AA77-4093EDAC1C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869EBC42-B84F-4046-AA77-4093EDAC1C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{869EBC42-B84F-4046-AA77-4093EDAC1C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC0302EB-3CD0-4C04-9977-F4CA61827F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC0302EB-3CD0-4C04-9977-F4CA61827F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC0302EB-3CD0-4C04-9977-F4CA61827F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC0302EB-3CD0-4C04-9977-F4CA61827F39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +64,6 @@ Global
 		{AC78416A-65A3-4D42-83A6-577D50EF554D} = {C51EE2F7-C18F-4E34-8C7E-18283038554E}
 		{81BAD301-E9E2-4906-9F8E-44CADA7B5D42} = {C51EE2F7-C18F-4E34-8C7E-18283038554E}
 		{869EBC42-B84F-4046-AA77-4093EDAC1C83} = {C51EE2F7-C18F-4E34-8C7E-18283038554E}
+		{DC0302EB-3CD0-4C04-9977-F4CA61827F39} = {07E9A5A6-70E8-450F-97BA-35804831730C}
 	EndGlobalSection
 EndGlobal
